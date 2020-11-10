@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1601651430 source:/home/user/I502B/IK/12/lab_2/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1603751767 source:/home/fedor/Desktop/C/lab_2/main.c
+	<stdio.h>
+	<stdlib.h>
+
