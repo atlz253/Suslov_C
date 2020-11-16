@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 2
+#define PART 1
 
 #if PART == 0
 
@@ -23,12 +23,12 @@ int main() {
             getchar();
         }
         else {
-            printf("cos(b*x) can't be equal -1\n");
+            printf("cos(b*x) ≠ -1 (ОДЗ)\n");
             getchar();
         }
     }
     else {
-        printf("x can't be equal -1\n");
+        printf("x ≠ -1 (ОДЗ)\n");
         getchar();
     }
 
