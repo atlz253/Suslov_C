@@ -52,8 +52,14 @@ int main() {
     short int x_min, x_max, i;
     float x, y, c;
 
-    printf("Введите x_min и x_max: ");
-    scanf("%hu %hu", &x_min, &x_max);
+    do {
+        printf("Введите x_min и x_max: ");
+        while(scanf("%hd %hd", &x_min, &x_max)!=2) {
+            while (getchar()!='\n');
+            printf("Введены некорректные данные!\nВведите x_min и x_max: ");
+        }
+        if(x_min>x_max) printf("x_min>x_max\n");
+    } while (x_min>x_max);
 
     for (i=x_min;i<=x_max;i++) {
         x = i;
