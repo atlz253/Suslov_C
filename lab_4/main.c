@@ -2,17 +2,23 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 2
+#define PART 0
 
 #if PART == 0
 
 int main()
 {
-    unsigned short int n, i;
+    short int n, i;
     float result, a;
 
-    printf("Введите натуральное число: ");
-    scanf("%hu", &n);
+    do {
+        printf("Введите натуральное число: ");
+        while (scanf("%hd", &n)!=1) {
+            while (getchar()!='\n');
+            printf("Введены некорректные данные!\nВведите натуральное число: ");
+        }
+        if (n<0) printf("Введены некорректные данные! Число не является натуральным.\n");
+    } while(n<0);
 
     for (i=1;i<=n;) {
         result += (float) i/++i;
