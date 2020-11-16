@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -33,10 +33,16 @@ int main()
 
 int main() {
     unsigned short int i;
-    unsigned long int n;
+    long int n;
 
-    printf("Введите натуральное число: ");
-    scanf("%lu", &n);
+    do {
+        printf("Введите натуральное число: ");
+        while (scanf("%ld", &n)!=1) {
+            while (getchar()!='\n');
+            printf("Введены некорректные данные!\nВведите натуральное число: ");
+        }
+        if (n<0) printf("Введены некорректные данные! Число не является натуральным.\n");
+    } while(n<0);
 
     while (n!=0) {
         if (n%2==0) {
