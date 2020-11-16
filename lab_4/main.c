@@ -83,19 +83,19 @@ int main() {
         
 
         if (i==x_min) {
-            printf("\n╔════╦═══════╗");
-            printf("\n║   x   ║   f   ║");
-            printf("\n╠════╬═══════╣");
-            printf("\n║ %2.0f ║ %5.2f ║", x, y);
-            printf("\n╠════╬═══════╣");
+            printf("\n╔═════╦═══════╗");
+            printf("\n║  x  ║   f   ║");
+            printf("\n╠═════╬═══════╣");
+            printf("\n║ %3.0f ║ %5.2f ║", x, y);
+            printf("\n╠═════╬═══════╣");
         }
         else if (i==x_max) {
-            printf("\n║ %2.0f ║ %5.2f ║", x, y);
-            printf("\n╚════╩═══════╝\n");
+            printf("\n║ %3.0f ║ %5.2f ║", x, y);
+            printf("\n╚═════╩═══════╝\n");
         }
         else {
-            printf("\n║ %2.0f ║ %5.2f ║", x, y);
-            printf("\n╠════╬═══════╣");
+            printf("\n║ %3.0f ║ %5.2f ║", x, y);
+            printf("\n╠═════╬═══════╣");
         }
     }
 
