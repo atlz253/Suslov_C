@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 1
+#define PART 2
 
 #if PART == 0
 
@@ -59,7 +59,7 @@ int main() {
 int main() {
     float x, y, c, p;
 
-    printf("Enter x and y: ");
+    printf("Введите x и y: ");
     scanf("%f %f", &x, &y);
 
     if (y==0 && x==0) {
