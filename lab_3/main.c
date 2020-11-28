@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 2
+#define PART 0
 
 #if PART == 0
 
@@ -15,9 +15,9 @@ int main() {
     printf("x input: ");
     scanf("%f", &x);
 
-    if (x!=-1) {
+    if (fabs(x+1)>1e-3) {
         c = cos(b*x);
-        if (c!=-1) {
+        if (fabs(c+1)>1e-3) {
             y = (a/(1+x) + cbrt(x)/2)/(1+c)*exp(x);
             printf("x=%.2f f=%.2f\n", x, y);
             getchar();
