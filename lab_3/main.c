@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 1
+#define PART 2
 
 #if PART == 0
 
@@ -62,16 +62,16 @@ int main() {
     printf("Введите x и y: ");
     scanf("%f %f", &x, &y);
 
-    if (y==0 && x==0) {
+    if (fabs(y)<1e-3 && fabs(x)<1e-3) {
         printf("Точка находится на оси x и y\n");
     }
-    else if (y==0) {
+    else if (fabs(y)<1e-3) {
         printf("Точка находится на оси x\n");
     }
-    else if (x==0) {
+    else if (fabs(x)<1e-3) {
         printf("Точка находится на оси y\n");
     }
-    else if (x < 0 || y < 0) {
+    else if (x<0 || y<0) {
         printf("Точка находится вне области определения\n");
     }
     else {
