@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -43,7 +43,7 @@ int main() {
     printf("x: ");
     scanf("%f", &x);
 
-    x<0?(y=0):(x>=1?(y=x):(y=sqrt(x)));
+    y=x<0?(0):(x>=1?(x):(sqrt(x)));
 
     printf("x=%.2f f=%.2f\n", x, y);
     getchar();
