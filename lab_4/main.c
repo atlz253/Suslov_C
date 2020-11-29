@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 1
+#define PART 2
 
 #if PART == 0
 
@@ -61,17 +61,18 @@ int main() {
 #define b 4.2
 
 int main() {
-    short int x_min, x_max, i;
+    short int x_min, x_max, i, n;
     float x, y, c;
 
     do {
-        printf("Введите x_min и x_max: ");
-        while(scanf("%hd %hd", &x_min, &x_max)!=2) {
+        printf("Введите x_min, x_max и кол-во выводимых чисел: ");
+        while(scanf("%hd %hd %hd", &x_min, &x_max, &n)!=3) {
             while (getchar()!='\n');
-            printf("Введены некорректные данные!\nВведите x_min и x_max: ");
+            printf("Введены некорректные данные!\nВведите x_min и x_max и кол-во выводимых чисел: ");
         }
         if(x_min>x_max) printf("x_min>x_max\n");
-    } while (x_min>x_max);
+        if (n<0) printf("Введены некорректные данные для кол-ва выводимых чисел! Число не является натуральным.\n");
+    } while (x_min>x_max || n<0);
 
     for (i=x_min;i<=x_max;i++) {
         x = i;
