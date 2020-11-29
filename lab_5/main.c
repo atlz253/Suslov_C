@@ -8,7 +8,7 @@ int main()
     float e, x, a=1, sum=a;
 
     printf("Введите x и точность: ");
-    while (scanf("%f %e", &x, &e)!=2) {
+    while (scanf("%f %e", &x, &e)!=2) { // 3 10e-5
         while (getchar()!='\n');
         printf("Введены некорректные данные!\nВведите x и точность: ");
     }
