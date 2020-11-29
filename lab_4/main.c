@@ -81,7 +81,7 @@ int main() {
         if (i==n||x>x_max) {
             break;
         }
-        else if (x==-1) {
+        else if (fabs(x+1)<1e-3) {
             y=exp(fabsf(x));
         }
         else if (x<-1) {
