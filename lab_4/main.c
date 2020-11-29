@@ -74,7 +74,7 @@ int main() {
         if (n<0) printf("Введены некорректные данные для кол-ва выводимых чисел! Число не является натуральным.\n");
     } while (x_min>x_max || n<0);
 
-    s=(abs(x_max)>n)?(abs(x_max)/n):(1);
+    s=(abs(x_max)>n)?((abs(x_max)-x_min)/n):(1);
 
     for (i=0;i<=n;i++) {
         x=x_min+i*s;
