@@ -61,7 +61,7 @@ int main() {
 #define b 4.2
 
 int main() {
-    short int x_min, x_max, i, n;
+    short int x_min, x_max, i, n, s;
     float x, y, c;
 
     do {
@@ -74,9 +74,14 @@ int main() {
         if (n<0) printf("Введены некорректные данные для кол-ва выводимых чисел! Число не является натуральным.\n");
     } while (x_min>x_max || n<0);
 
-    for (i=x_min;i<=x_max;i++) {
-        x = i;
-        if (x==-1) {
+    s=(abs(x_max)>n)?(abs(x_max)/n):(1);
+
+    for (i=0;i<=n;i++) {
+        x=x_min+i*s;
+        if (i==n||x>x_max) {
+            break;
+        }
+        else if (x==-1) {
             y=exp(fabsf(x));
         }
         else if (x<-1) {
@@ -101,19 +106,18 @@ int main() {
 
         
 
-        if (i==x_min) {
+        if (i==0) {
             printf("\n╔═════╦═══════╗");
             printf("\n║  x  ║   f   ║");
             printf("\n╠═════╬═══════╣");
-            printf("\n║ %3.0f ║ %5.2f ║", x, y);
-            printf("\n╠═════╬═══════╣");
         }
-        else if (i==x_max) {
-            printf("\n║ %3.0f ║ %5.2f ║", x, y);
+
+        printf("\n║ %3.0f ║ %5.2f ║", x, y);
+
+        if (i==n-1||x==x_max||n==1) {
             printf("\n╚═════╩═══════╝\n");
         }
         else {
-            printf("\n║ %3.0f ║ %5.2f ║", x, y);
             printf("\n╠═════╬═══════╣");
         }
     }
