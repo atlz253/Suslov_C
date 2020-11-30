@@ -83,10 +83,21 @@ int main()
 
 int main()
 {
-    unsigned short int i, j, arr[8][10];
+    unsigned short int m, n;
+    #if DEBUG == 0
+        m = 8;
+        n = 10;
+    #elif DEBUG == 1
+        printf("Введите M N: ");
+        while (scanf("%hu %hu", &m, &n)!=2) {
+            while (getchar()!='\n');
+            printf("Неверные данные! Введите M N: ");
+        }
+    #endif // DEBUG
+    unsigned short int i, j, arr[m][n];
 
-    for (i=0;i<8;i++) {
-        for (j=0;j<10;j++) {
+    for (i=0;i<m;i++) {
+        for (j=0;j<n;j++) {
             #if DEBUG == 0
                 arr[i][j] = random()%120;
             #elif DEBUG == 1
@@ -99,11 +110,11 @@ int main()
         }
     }
 
-    for (i=0;i<8;i++) { 
+    for (i=0;i<m;i++) { 
         printf("[");
-        for (j=0;j<10;j++) {
+        for (j=0;j<n;j++) {
             printf("%hd", arr[i][j]);
-            if (j!=9) printf(" ");
+            if (j!=n-1) printf(" ");
         }
         printf("]\n");
     }
