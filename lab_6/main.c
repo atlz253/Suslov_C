@@ -79,7 +79,7 @@ int main()
 
 #elif PART == 2
 
-#define DEBUG 1
+#define DEBUG 0
 
 int main()
 {
@@ -113,7 +113,7 @@ int main()
     for (i=0;i<m;i++) { 
         printf("[");
         for (j=0;j<n;j++) {
-            printf("%hd", arr[i][j]);
+            printf("%3.hd", arr[i][j]);
             if (j!=n-1) printf(" ");
         }
         printf("]\n");
