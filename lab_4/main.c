@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PART 2
+#define PART 0
 
 #if PART == 0
 
 int main()
 {
-    short int n, i;
-    float result, a;
+    short int n;
+    float result=0, i;
 
     do {
         printf("Введите натуральное число: ");
@@ -20,9 +20,7 @@ int main()
         if (n<0) printf("Введены некорректные данные! Число не является натуральным.\n");
     } while(n<0);
 
-    for (i=1;i<=n;) {
-        result += (float) i/++i;
-    }
+    for (i=1;i<=n;result+=i++/i);
 
     printf("Результат: %.2f\n", result);
 
