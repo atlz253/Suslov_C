@@ -21,7 +21,6 @@ int main()
             while (getchar()!='\n');
             printf("Неверные данные! Введите значение %hd: ", i);
         }
-        while (getchar()!='\n');
     }
 }
 
