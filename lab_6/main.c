@@ -94,15 +94,15 @@ int main()
             printf("Неверные данные! Введите M N: ");
         }
     #endif // DEBUG
-    unsigned short int i, j, arr[m][n];
+    unsigned short int i, j, a[m][n];
 
     for (i=0;i<m;i++) {
         for (j=0;j<n;j++) {
             #if DEBUG == 0
-                arr[i][j] = random()%120;
+                a[i][j] = random()%120;
             #elif DEBUG == 1
                 printf("Введите значение A[%hd][%hd]: ", i, j);
-                while (scanf("%hd", &arr[i][j])!=1) {
+                while (scanf("%hd", &a[i][j])!=1) {
                     while (getchar()!='\n');
                     printf("Неверные данные! Введите значение A[%hd][%hd]: ", i, j);
                 }
@@ -113,7 +113,7 @@ int main()
     for (i=0;i<m;i++) { 
         printf("[");
         for (j=0;j<n;j++) {
-            printf("%3.hd", arr[i][j]);
+            printf("%3.hd", a[i][j]);
             if (j!=n-1) printf(" ");
         }
         printf("]\n");
