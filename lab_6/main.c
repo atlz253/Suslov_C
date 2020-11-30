@@ -79,19 +79,19 @@ int main()
 
 #elif PART == 2
 
-#define DEBUG 0
+#define DEBUG 1
 
 int main()
 {
     unsigned short int m, n;
     #if DEBUG == 0
-        m = 8;
         n = 10;
+        m = 8;
     #elif DEBUG == 1
-        printf("Введите M N: ");
-        while (scanf("%hu %hu", &m, &n)!=2) {
+        printf("Введите N M: ");
+        while (scanf("%hu %hu", &n, &m)!=2) {
             while (getchar()!='\n');
-            printf("Неверные данные! Введите M N: ");
+            printf("Неверные данные! Введите N M: ");
         }
     #endif // DEBUG
     unsigned short int i, j, a[m][n], b[n];
