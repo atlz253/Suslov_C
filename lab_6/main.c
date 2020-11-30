@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -45,6 +45,18 @@ int main()
 }
 
 #elif PART == 1
+
+int main()
+{
+    unsigned long int n;
+    printf("Введите кол-во элементов массива: ");
+    while (scanf("%lu", &n)!=1) {
+        while (getchar()!='\n');
+        printf("Неверные данные! Введите кол-во элементов массива: ");
+    }
+
+    return 0;
+}
 
 #elif PART == 2
 
