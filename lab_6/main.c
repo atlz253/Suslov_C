@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 1
+#define PART 2
 
 #if PART == 0
 
@@ -79,4 +79,37 @@ int main()
 
 #elif PART == 2
 
+#define DEBUG 1
+
+int main()
+{
+    unsigned short int i, j, arr[8][10];
+
+    for (i=0;i<8;i++) {
+        for (j=0;j<10;j++) {
+            #if DEBUG == 0
+                arr[i][j] = random()%120;
+            #elif DEBUG == 1
+                printf("Введите значение A[%hd][%hd]: ", i, j);
+                while (scanf("%hd", &arr[i][j])!=1) {
+                    while (getchar()!='\n');
+                    printf("Неверные данные! Введите значение A[%hd][%hd]: ", i, j);
+                }
+            #endif // DEBUG
+        }
+    }
+
+    for (i=0;i<8;i++) { 
+        printf("[");
+        for (j=0;j<10;j++) {
+            printf("%hd", arr[i][j]);
+            if (j!=9) printf(" ");
+        }
+        printf("]\n");
+    }
+
+    return 0;
+}
+
+#undef DEBUG
 #endif // PART
