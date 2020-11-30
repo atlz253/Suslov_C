@@ -48,13 +48,18 @@ int main()
 
 int main()
 {
-    unsigned long int n;
+    unsigned long int n, i;
     printf("Введите кол-во элементов массива: ");
     while (scanf("%lu", &n)!=1) {
         while (getchar()!='\n');
         printf("Неверные данные! Введите кол-во элементов массива: ");
     }
 
+    int arr[n];
+    for (i=0;i<n;arr[i++]=random()%9999);
+    
+    printf("Исходный массив: ");
+    for (i=0;i<n;printf("%d ", arr[i++]));
     return 0;
 }
 
