@@ -31,7 +31,7 @@ int main()
         printf("Исходный массив: ");
         for (i=0;i<n;printf("%d ", arr[i++]));
 
-        printf("\nНовый массив: ");
+        printf("\nРезультат: ");
         for (i=0;i<n;i++) {
             if (i==min||arr[min]==arr[i]) continue;
             printf("%d ", arr[i]);
