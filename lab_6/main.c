@@ -94,12 +94,12 @@ int main()
             printf("Неверные данные! Введите M N: ");
         }
     #endif // DEBUG
-    unsigned short int i, j, a[m][n];
+    unsigned short int i, j, a[m][n], b[n];
 
     for (i=0;i<m;i++) {
         for (j=0;j<n;j++) {
             #if DEBUG == 0
-                a[i][j] = random()%120;
+                a[i][j] = random()%999;
             #elif DEBUG == 1
                 printf("Введите значение A[%hd][%hd]: ", i, j);
                 while (scanf("%hd", &a[i][j])!=1) {
@@ -110,6 +110,7 @@ int main()
         }
     }
 
+    printf("A(N=%hd,M=%hd):\n", n, m);
     for (i=0;i<m;i++) { 
         printf("[");
         for (j=0;j<n;j++) {
@@ -118,6 +119,17 @@ int main()
         }
         printf("]\n");
     }
+
+    printf("\nB:\n[");
+    for (i=0;i<n;i++) {
+        b[i]=0;
+        for (j=0;j<m;j++) {
+            if (a[j][i]>b[i]) b[i] = a[j][i];
+        }
+        printf("%3.hd", b[i]);
+        if (i!=n-1) printf(" ");
+    }
+    printf("]\n");
 
     return 0;
 }
