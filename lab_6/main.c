@@ -7,11 +7,21 @@
 
 int main()
 {
-    unsigned short int n;
+    unsigned short int n, i;
     printf("Введите кол-во элементов массива: ");
     while (scanf("%hu", &n)!=1) {
         while (getchar()!='\n');
         printf("Неверные данные! Введите кол-во элементов массива: ");
+    }
+
+    short int arr[n];
+    for (i=0;i<n;i++) {
+        printf("Введите значение %hd: ", i);
+        while (scanf("%hd", &arr[i])!=1) {
+            while (getchar()!='\n');
+            printf("Неверные данные! Введите значение %hd: ", i);
+        }
+        while (getchar()!='\n');
     }
 }
 
