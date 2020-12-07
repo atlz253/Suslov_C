@@ -11,8 +11,12 @@ int main()
     short int a, i;
     char str[81], result[81];
 
-    printf("Введите строку (не более 80 символов): ");
-    gets(str);
+    do {
+        for (i=0;i<81;str[i++]='\0');
+        printf("Введите строку (не более 80 символов): ");
+        gets(str);
+        if (strlen(str)>=80&&str[81]!='\0') printf("Введено больше 80 символов!\n");
+    } while (strlen(str)>=80&&str[81]!='\0');
 
     for (i=0;i<81; i++) {
         if (str[i]==' '&&str[i-1]==' ') {
@@ -54,8 +58,12 @@ int main()
 
     for (i=0;i<n;i++) {
         printf("Введите строку %hd (не более 80 символов): ", i);
-        //scanf("%80s", str[i]);
-        gets(str[i]);
+        do {
+            for (j=0;j<81;str[i][j++]='\0');
+            printf("Введите строку (не более 80 символов): ");
+            gets(str[i]);
+            if (strlen(str[i])>=80&&str[i][81]!='\0') printf("Введено больше 80 символов!\n");
+        } while (strlen(str[i])>=80&&str[i][81]!='\0');
         if (maxl<strlen(str[i])) maxl=strlen(str[i]);
     }
 
