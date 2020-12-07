@@ -31,13 +31,15 @@ int main()
     printf("Исходная строка: ");
     puts(str);
 
-    printf("Резултат: ");
+    printf("Результат: ");
     puts(result);
 
     return 0;
 }
 
 #elif PART == 1
+
+#define STANDARTFUNC 0
 
 int main()
 {
@@ -57,19 +59,28 @@ int main()
     char str[n][81], result[n][81];
 
     for (i=0;i<n;i++) {
-        printf("Введите строку %hd (не более 80 символов): ", i);
-        do {
-            for (j=0;j<81;str[i][j++]='\0');
-            printf("Введите строку (не более 80 символов): ");
-            gets(str[i]);
-            if (strlen(str[i])>=80&&str[i][81]!='\0') printf("Введено больше 80 символов!\n");
-        } while (strlen(str[i])>=80&&str[i][81]!='\0');
+        #if STANDARTFUNC == 0
+            do {
+                for (j=0;j<81;str[i][j++]='\0');
+                printf("Введите строку %hd (не более 80 символов): ", i);
+                gets(str[i]);
+                if (strlen(str[i])>=80&&str[i][81]!='\0') printf("Введено больше 80 символов!\n");
+            } while (strlen(str[i])>=80&&str[i][81]!='\0');
+        #elif STANDARTFUNC == 1
+            printf("Введите строку %hd: ", i);
+            scanf("%80s", str[i]);
+            while (getchar()!='\n');
+        #endif
         if (maxl<strlen(str[i])) maxl=strlen(str[i]);
     }
 
     printf("\nИзначальные строки\n");
     for (i=0;i<n;i++) {
-        puts(str[i]);
+        #if STANDARTFUNC == 0
+            puts(str[i]);
+        #elif STANDARTFUNC == 1
+            printf("%s\n", str[i]);
+        #endif
     }
 
     printf("\nСтроки \"по центру\"\n");
@@ -84,7 +95,12 @@ int main()
                 result[i][j] = str[i][j-s];
             }
         }
-        puts(result[i]);
+
+        #if STANDARTFUNC == 0
+            puts(result[i]);
+        #elif STANDARTFUNC == 1
+            printf("%s\n", result[i]);
+        #endif
     }
 
     return 0;
