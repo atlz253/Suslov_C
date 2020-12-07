@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -37,7 +37,7 @@ int main()
 
 int main()
 {
-    short int n, i, maxl=0;
+    short int n, i, j, s, maxl=0;
 
     do {
         printf("Введите количество строк: ");
@@ -59,8 +59,24 @@ int main()
         if (maxl<strlen(str[i])) maxl=strlen(str[i]);
     }
 
+    printf("\nИзначальные строки\n");
     for (i=0;i<n;i++) {
         puts(str[i]);
+    }
+
+    printf("\nСтроки \"по центру\"\n");
+    for (i=0;i<n;i++) {
+        s = (maxl-strlen(str[i]))/2;
+
+        for (j=0;j<strlen(str[i])+s+1;j++) {
+            if (j<s) {
+                result[i][j] = ' ';
+            }
+            else {
+                result[i][j] = str[i][j-s];
+            }
+        }
+        puts(result[i]);
     }
 
     return 0;
