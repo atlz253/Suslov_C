@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define PART 1
+#define PART 0
 
 #if PART == 0
 
@@ -11,7 +12,7 @@ int main()
     char str[81], result[81];
 
     printf("Введите строку (не более 80 символов): ");
-    fgets(str, 81, stdin);
+    gets(str);
 
     for (i=0;i<81; i++) {
         if (str[i]==' '&&str[i-1]==' ') {
@@ -36,7 +37,7 @@ int main()
 
 int main()
 {
-    short int n, i;
+    short int n, i, maxl=0;
 
     do {
         printf("Введите количество строк: ");
@@ -54,7 +55,8 @@ int main()
     for (i=0;i<n;i++) {
         printf("Введите строку %hd (не более 80 символов): ", i);
         //scanf("%80s", str[i]);
-        fgets(str[i], 81, stdin);
+        gets(str[i]);
+        if (maxl<strlen(str[i])) maxl=strlen(str[i]);
     }
 
     for (i=0;i<n;i++) {
