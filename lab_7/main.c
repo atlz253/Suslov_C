@@ -52,13 +52,12 @@ int main()
     char str[n][81], result[n][81];
 
     for (i=0;i<n;i++) {
-        printf("Введите строку (не более 80 символов): ");
+        printf("Введите строку %hd (не более 80 символов): ", i);
         //scanf("%80s", str[i]);
         fgets(str[i], 81, stdin);
     }
 
     for (i=0;i<n;i++) {
-        printf("Исходная строка: ");
         puts(str[i]);
     }
 
