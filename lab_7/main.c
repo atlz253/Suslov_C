@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PART 1
+#define PART 0
 
 #if PART == 0
 
 int main()
 {
     short int a, i;
-    char str[81], result[81];
+    char str[81]={'\0'}, result[81]={'\0'};
 
     do {
         for (i=0;i<81;str[i++]='\0');
@@ -57,6 +57,8 @@ int main()
     getchar();
 
     char str[n][81], result[n][81];
+    memset(str,'\0',sizeof(char)*n*81);
+    memset(result,'\0',sizeof(char)*n*81);
 
     for (i=0;i<n;i++) {
         #if STANDARTFUNC == 0
