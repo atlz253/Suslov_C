@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -34,7 +34,14 @@ int main()
 
 int main()
 {
-    printf("Hello world!\n");
+    char str[5][81] = {
+        "sit eveniet excepturi sed deleniti sequi sed officiis excepturi.",
+        "soluptatem consequuntur aut rerum dolor ducimus eum ea sed.",
+        "suasi aut doloribus laboriosam tempore numquam aut accusantium.",
+        "suo similique fugiat magnam fugiat voluptate voluptatem occaecati quae.",
+        "senetur harum et sit distinctio sunt sint aspernatur."
+    };
+
     return 0;
 }
 
