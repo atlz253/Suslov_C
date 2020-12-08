@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -15,8 +15,8 @@ int main()
         for (i=0;i<81;str[i++]='\0');
         printf("Введите строку (не более 80 символов): ");
         gets(str);
-        if (strlen(str)>=80&&str[81]!='\0') printf("Введено больше 80 символов!\n");
-    } while (strlen(str)>=80&&str[81]!='\0');
+        if (strlen(str)>=81&&str[80]!='\0') printf("Введено больше 80 символов!\n");
+    } while (strlen(str)>=81&&str[80]!='\0');
 
     for (i=0;i<81; i++) {
         if (str[i]==' '&&str[i-1]==' ') {
@@ -66,8 +66,8 @@ int main()
                 for (j=0;j<81;str[i][j++]='\0');
                 printf("Введите строку %hd (не более 80 символов): ", i);
                 gets(str[i]);
-                if (strlen(str[i])>=80&&str[i][81]!='\0') printf("Введено больше 80 символов!\n");
-            } while (strlen(str[i])>=80&&str[i][81]!='\0');
+                if (strlen(str[i])>=81&&str[i][80]!='\0') printf("Введено больше 80 символов!\n");
+            } while (strlen(str[i])>=81&&str[i][80]!='\0');
         #elif STANDARTFUNC == 1
             printf("Введите строку %hd: ", i);
             scanf("%80s", str[i]);
