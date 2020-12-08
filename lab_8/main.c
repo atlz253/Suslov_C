@@ -34,13 +34,19 @@ int main()
 
 int main()
 {
-    char str[5][81] = {
+    char c, str[5][81] = {
         "sit eveniet excepturi sed deleniti sequi sed officiis excepturi.",
         "soluptatem consequuntur aut rerum dolor ducimus eum ea sed.",
         "suasi aut doloribus laboriosam tempore numquam aut accusantium.",
         "suo similique fugiat magnam fugiat voluptate voluptatem occaecati quae.",
         "senetur harum et sit distinctio sunt sint aspernatur."
     };
+
+    printf("Введите символ, который для поиска: ");
+    while (scanf("%c", &c)!=1) {
+        while (getchar()!='\n');
+        printf("Введены неверные данные!\nВведите символ, который для поиска: ");
+    }
 
     return 0;
 }
