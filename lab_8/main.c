@@ -34,12 +34,12 @@ int main()
 
 int main()
 {
-    char c, str[5][81] = {
-        "sit eveniet excepturi sed deleniti sequi sed officiis excepturi.",
-        "soluptatem consequuntur aut rerum dolor ducimus eum ea sed.",
-        "suasi aut doloribus laboriosam tempore numquam aut accusantium.",
-        "suo similique fugiat magnam fugiat voluptate voluptatem occaecati quae.",
-        "senetur harum et sit distinctio sunt sint aspernatur."
+    char c, *p, (*ps)[81], str[5][81] = {
+        "ann likes apples a fox lives in the forest ben and ann are the best friends bear",
+        "cows give milk cabbage salad is my favorite dish dogs hate cats ducks are walkin",
+        "elephants are big and kind eight is my favorite number five mice live in the hou",
+        "four books are in the bag girls are beautiful green crocodiles live in africa",
+        "horses are strong ham is useful kate likes reading keys are on the table"
     };
 
     do {
@@ -51,6 +51,25 @@ int main()
         if(c<97||c>122) printf("Введенная буква не является английской в нижнем регистре!\n");
         while (getchar()!='\n');
     } while (c<97||c>122);
+
+    printf("\nИсходный массив\n");
+    for (ps=str;ps<str+5;ps++) {
+        puts(*ps);
+    }
+
+    printf("\nРезультат\n");
+    for (ps=str;ps<str+5;ps++) {
+        for(p=*ps;p<*ps+81;p++) {
+            if (*p==c&&*(p-1)==' '||p==*ps&&*p==c) {
+                do {
+                    printf("%c", *p);
+                    p++;
+                } while (*p!=' '&&*p!='\0');
+                putchar(' ');
+            }
+        }
+        putchar('\n');
+    }
 
     return 0;
 }
