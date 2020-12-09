@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PART 1
+#define PART 0
 
 #if PART == 0
 
@@ -21,7 +21,6 @@ int main()
     for (i=0;i<81; i++) {
         if (str[i]==' '&&str[i-1]==' ') {
             a++;
-            continue;
         }
         else {
             result[i-a] = str[i];
