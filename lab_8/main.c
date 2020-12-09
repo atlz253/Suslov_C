@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PART 1
+#define PART 0
 
 #if PART == 0
 
 int main()
 {
-    short int i;
     char str[81], *p;
 
     do {
