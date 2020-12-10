@@ -18,6 +18,17 @@ int main()
         }
     }
 
+    printf("\nИсходный массив: ");
+    for (p=arr;p<arr+N;p++) {
+        printf("%hd ", *p);
+    }
+
+    printf("\nРезультат: ");
+    for (p=arr;p<arr+N;p++) {
+        printf("%hd ", *p);
+    }
+    putchar('\n');
+
     return 0;
 }
 
