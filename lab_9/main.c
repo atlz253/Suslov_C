@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 0
+#define PART 2
 
 
 #if PART == 0
@@ -78,10 +78,9 @@ int main()
 
 
 #elif PART == 1
-#define Arrinput 0 // макрос, чтобы не вводить матрицу вручную
+#define Arrinput 1 // макрос, чтобы не вводить матрицу вручную
 
-#define N 5
-#define M 6
+unsigned short int N, M;
 
 void LastNegativeToZero(short int (*arr)[M]) {
     short int (*ps)[M], *p;
@@ -99,6 +98,12 @@ void LastNegativeToZero(short int (*arr)[M]) {
 int main()
 {
     #if Arrinput == 1
+        printf("Введите количество строк и столбцов в матрице: ");
+        while (scanf("%hu %hu", &N, &M)!=2) {
+            while (getchar()!='\n');
+            printf("Введены неверные данные!\nВведите количество строк и столбцов в матрице: ");
+        }
+
         short int arr[N][M], (*ps)[M], *p;
 
         for (ps=arr;ps<arr+N;ps++) {
@@ -119,6 +124,8 @@ int main()
             {-3, 10, 5, -8, 7, 20},
             {1, -3, 5, 6, 7, 10}
         };
+        N = 5;
+        M = 6;
     #endif
 
     printf("\nИсходная матрица\n");
@@ -142,15 +149,12 @@ int main()
 }
 
 #undef Arrinput
-#undef N
-#undef M
 
 
 #elif PART == 2
-#define Arrinput 0 // макрос, чтобы не вводить матрицу вручную
+#define Arrinput 1 // макрос, чтобы не вводить матрицу вручную
 
-#define N 5
-#define M 6
+unsigned short int N, M;
 
 void LastNegativeToZero(short int arr[N][M]) {
     short int i, j;
@@ -168,10 +172,16 @@ void LastNegativeToZero(short int arr[N][M]) {
 int main()
 {
     #if Arrinput == 1
+        printf("Введите количество строк и столбцов в матрице: ");
+        while (scanf("%hu %hu", &N, &M)!=2) {
+            while (getchar()!='\n');
+            printf("Введены неверные данные!\nВведите количество строк и столбцов в матрице: ");
+        }
+
         short int arr[N][M], i, j;
 
-        for (i=0;i<N-1;i++) {
-            for (j=0;j<M-1;j++) {
+        for (i=0;i<N;i++) {
+            for (j=0;j<M;j++) {
                 printf("Введите элемент: ");
                 while (scanf("%hd", &arr[i][j])!=1) {
                     while (getchar()!='\n');
@@ -188,6 +198,8 @@ int main()
             {-3, 10, 5, -8, 7, 20},
             {1, -3, 5, 6, 7, 10}
         };
+        N = 5;
+        M = 6;
     #endif
 
     printf("\nИсходная матрица\n");
