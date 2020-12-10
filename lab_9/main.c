@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 0
+#define PART 1
 
 #if PART == 0
 
@@ -71,9 +71,29 @@ int main()
 
 #elif PART == 1
 
+#define N 5
+#define M 6
+
 int main()
 {
-    printf("Hello world!\n");
+    short int arr[N][M], (*ps)[M], *p;
+
+    for (ps=arr;ps<arr+N;ps++) {
+        for (p=*ps;p<*ps+M;p++) {
+            printf("Введите элемент: ");
+            while (scanf("%hd", p)!=1) {
+                printf("Введены неверные данные!\nВведите элемент: ");
+            }
+            getchar();
+        }
+    }
+
+    for (ps=arr;ps<arr+N;ps++) {
+        for (p=*ps;p<*ps+M;p++) {
+            printf("%hd ", *p);
+        }
+        putchar('\n');
+    }
     return 0;
 }
 
