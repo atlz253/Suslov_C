@@ -82,6 +82,7 @@ int main()
         for (p=*ps;p<*ps+M;p++) {
             printf("Введите элемент: ");
             while (scanf("%hd", p)!=1) {
+                while (getchar()!='\n');
                 printf("Введены неверные данные!\nВведите элемент: ");
             }
             getchar();
