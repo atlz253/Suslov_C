@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 2
+#define PART 0
 
 
 #if PART == 0
 #define Arrinput 1 // макрос, чтобы не вводить массив вручную
 
-#define N 10
+unsigned short int N;
 
 void NumDel(short int *arr, short int num) {
     short int *p, i=0;
@@ -30,6 +30,13 @@ void NumDel(short int *arr, short int num) {
 int main()
 {
     #if Arrinput == 1
+        printf("Введите количество элементов массива: ");
+        while (scanf("%hu", &N)!=1) {
+            while (getchar()!='\n');
+            printf("Введены неверные данные!\nВведите количество элементов массива: ");
+        }
+        getchar();
+
         short int arr[N], *p, num;
 
         for (p=arr;p<arr+N;p++) {
@@ -42,6 +49,7 @@ int main()
         getchar();
     #else
         short int *p, num, arr[10]={1, 2, 3, 2, 4, 5, 6, 7, 2, 9};
+        N = 10;
     #endif
 
     printf("Введите число: ");
@@ -66,7 +74,6 @@ int main()
     return 0;
 }
 
-#undef N
 #undef Arrinput
 
 
