@@ -3,7 +3,7 @@
 
 #define PART 1
 
-#if PART == 1
+#if PART == 0
 
 #define Arrinput 0 // макрос, чтобы не вводить массив вручную
 
