@@ -134,6 +134,10 @@ int main()
     return 0;
 }
 
+#undef Arrinput
+#undef N
+#undef M
+
 #elif PART == 2
 
 int main()
