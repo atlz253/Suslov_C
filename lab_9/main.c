@@ -76,6 +76,19 @@ int main()
 #define N 5
 #define M 6
 
+void LastNegativeToZero(short int (*arr)[M]) {
+    short int (*ps)[M], *p;
+
+    for (ps=arr;ps<arr+N;ps++) { 
+        for (p=*ps+M-1;p>*ps;p--) { 
+            if (*p<0) {
+                *p = 0;
+                break;
+            }
+        }
+    }
+}
+
 int main()
 {
     #if Arrinput == 1
@@ -101,6 +114,17 @@ int main()
         };
     #endif
 
+    printf("\nИсходная матрица\n");
+    for (ps=arr;ps<arr+N;ps++) {
+        for (p=*ps;p<*ps+M;p++) {
+            printf("%5hd", *p);
+        }
+        putchar('\n');
+    }
+
+    LastNegativeToZero(arr);
+
+    printf("\nРезультат\n");
     for (ps=arr;ps<arr+N;ps++) {
         for (p=*ps;p<*ps+M;p++) {
             printf("%5hd", *p);
