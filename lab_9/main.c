@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 1
+#define PART 0
 
 
 #if PART == 0
@@ -117,7 +117,7 @@ int main()
             }
         }
     #else
-        short int (*ps)[M], *p, arr[5][6] = {
+        short int (*ps)[6], *p, arr[5][6] = {
             {1, 2, 3, 4, 5, 6},
             {-1, -2, -3, -4, -5, -6},
             {1, -3, 5, 6, 7, -10},
