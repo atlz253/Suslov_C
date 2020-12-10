@@ -5,9 +5,19 @@
 
 #if PART == 0
 
+#define N 10
+
 int main()
 {
-    printf("Hello world!\n");
+    short int arr[N], *p;
+
+    for (p=arr;p<arr+N;p++) {
+        printf("Введите элемент: ");
+        while (scanf("%hd", p)!=1) {
+            printf("Введены неверные данные!\nВведите элемент: ");
+        }
+    }
+
     return 0;
 }
 
