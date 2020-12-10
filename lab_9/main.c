@@ -5,7 +5,7 @@
 
 #if PART == 0
 
-#define Arrinput 0 // макрос, чтобы не вводить массив вручную
+#define Arrinput 1 // макрос, чтобы не вводить массив вручную
 
 #define N 10
 
@@ -29,7 +29,7 @@ void NumDel(short int *arr, short int num) {
 
 int main()
 {
-    #if Arrinput == 0
+    #if Arrinput == 1
         short int arr[N], *p, num;
 
         for (p=arr;p<arr+N;p++) {
