@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 1
+#define PART 2
+
 
 #if PART == 0
-
 #define Arrinput 1 // макрос, чтобы не вводить массив вручную
 
 #define N 10
@@ -69,8 +69,8 @@ int main()
 #undef N
 #undef Arrinput
 
-#elif PART == 1
 
+#elif PART == 1
 #define Arrinput 0 // макрос, чтобы не вводить матрицу вручную
 
 #define N 5
@@ -138,11 +138,68 @@ int main()
 #undef N
 #undef M
 
+
 #elif PART == 2
+#define Arrinput 0 // макрос, чтобы не вводить матрицу вручную
+
+#define N 5
+#define M 6
+
+void LastNegativeToZero(short int arr[N][M]) {
+    short int i, j;
+
+    for (i=0;i<N;i++) {
+        for (j=M-1;j>0;j--) { 
+            if (arr[i][j]<0) {
+                arr[i][j] = 0;
+                break;
+            }
+        }
+    }
+}
 
 int main()
 {
-    printf("Hello world!\n");
+    #if Arrinput == 1
+        short int arr[N][M], i, j;
+
+        for (i=0;i<N-1;i++) {
+            for (j=0;j<M-1;j++) {
+                printf("Введите элемент: ");
+                while (scanf("%hd", &arr[i][j])!=1) {
+                    while (getchar()!='\n');
+                    printf("Введены неверные данные!\nВведите элемент: ");
+                }
+                getchar();
+            }
+        }
+    #else
+        short int i, j, arr[5][6] = {
+            {1, 2, 3, 4, 5, 6},
+            {-1, -2, -3, -4, -5, -6},
+            {1, -3, 5, 6, 7, -10},
+            {-3, 10, 5, -8, 7, 20},
+            {1, -3, 5, 6, 7, 10}
+        };
+    #endif
+
+    printf("\nИсходная матрица\n");
+    for (i=0;i<N;i++) {
+        for (j=0;j<M;j++) {
+            printf("%5hd", arr[i][j]);
+        }
+        putchar('\n');
+    }
+
+    LastNegativeToZero(arr);
+
+    printf("\nРезультат\n");
+    for (i=0;i<N;i++) {
+        for (j=0;j<M;j++) {
+            printf("%5hd", arr[i][j]);
+        }
+        putchar('\n');
+    }
     return 0;
 }
 
