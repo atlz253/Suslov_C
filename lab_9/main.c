@@ -71,27 +71,39 @@ int main()
 
 #elif PART == 1
 
+#define Arrinput 0 // макрос, чтобы не вводить матрицу вручную
+
 #define N 5
 #define M 6
 
 int main()
 {
-    short int arr[N][M], (*ps)[M], *p;
+    #if Arrinput == 1
+        short int arr[N][M], (*ps)[M], *p;
 
-    for (ps=arr;ps<arr+N;ps++) {
-        for (p=*ps;p<*ps+M;p++) {
-            printf("Введите элемент: ");
-            while (scanf("%hd", p)!=1) {
-                while (getchar()!='\n');
-                printf("Введены неверные данные!\nВведите элемент: ");
+        for (ps=arr;ps<arr+N;ps++) {
+            for (p=*ps;p<*ps+M;p++) {
+                printf("Введите элемент: ");
+                while (scanf("%hd", p)!=1) {
+                    while (getchar()!='\n');
+                    printf("Введены неверные данные!\nВведите элемент: ");
+                }
+                getchar();
             }
-            getchar();
         }
-    }
+    #else
+        short int (*ps)[M], *p, arr[5][6] = {
+            {1, 2, 3, 4, 5, 6},
+            {-1, -2, -3, -4, -5, -6},
+            {1, -3, 5, 6, 7, -10},
+            {-3, 10, 5, -8, 7, 20},
+            {1, -3, 5, 6, 7, 10}
+        };
+    #endif
 
     for (ps=arr;ps<arr+N;ps++) {
         for (p=*ps;p<*ps+M;p++) {
-            printf("%hd ", *p);
+            printf("%5hd", *p);
         }
         putchar('\n');
     }
