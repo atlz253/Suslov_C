@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 2
+#define PART 1
 
 
 #if PART == 0
@@ -86,7 +86,7 @@ void LastNegativeToZero(short int (*arr)[M]) {
     short int (*ps)[M], *p;
 
     for (ps=arr;ps<arr+N;ps++) { 
-        for (p=*ps+M-1;p>*ps;p--) { 
+        for (p=*ps+M-1;p>*ps-1;p--) { 
             if (*p<0) {
                 *p = 0;
                 break;
