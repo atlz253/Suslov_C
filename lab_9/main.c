@@ -5,23 +5,57 @@
 
 #if PART == 0
 
+#define Arrinput 1
+
 #define N 10
 
-int main()
-{
-    short int arr[N], *p;
+void NumDel(short int *arr, short int num) {
+    short int *p, i=0;
 
     for (p=arr;p<arr+N;p++) {
-        printf("Введите элемент: ");
-        while (scanf("%hd", p)!=1) {
-            printf("Введены неверные данные!\nВведите элемент: ");
+        if (*p==num) {
+            i+=1;
+            *p=*(p+1);
+        }
+        else {
+            *(p-i)=*p;
         }
     }
 
-    printf("\nИсходный массив: ");
+    for (p=arr+N;p>arr+N-i-1;p--) {
+        *p=0;
+    }
+}
+
+int main()
+{
+    #if Arrinput == 1
+        short int arr[N], *p, num;
+
+        for (p=arr;p<arr+N;p++) {
+            printf("Введите элемент: ");
+            while (scanf("%hd", p)!=1) {
+                while (getchar()!='\n');
+                printf("Введены неверные данные!\nВведите элемент: ");
+            }
+        }
+        getchar();
+    #else
+        short int *p, num, arr[10]={1, 2, 3, 2, 4, 5, 6, 7, 2, 9};
+    #endif
+
+    printf("Введите число: ");
+    while (scanf("%hd", &num)!=1) {
+        while (getchar()!='\n');
+        printf("Введены неверные данные!\nВведите число: ");
+    }
+
+    printf("Исходный массив: ");
     for (p=arr;p<arr+N;p++) {
         printf("%hd ", *p);
     }
+
+    NumDel(arr, num);
 
     printf("\nРезультат: ");
     for (p=arr;p<arr+N;p++) {
@@ -31,6 +65,9 @@ int main()
 
     return 0;
 }
+
+#undef N
+#undef Arrinput
 
 #elif PART == 1
 
