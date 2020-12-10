@@ -160,7 +160,7 @@ void LastNegativeToZero(short int arr[N][M]) {
     short int i, j;
 
     for (i=0;i<N;i++) {
-        for (j=M-1;j>0;j--) { 
+        for (j=M-1;j>-1;j--) { 
             if (arr[i][j]<0) {
                 arr[i][j] = 0;
                 break;
