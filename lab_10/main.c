@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define DataInput 0 // макрос, чтобы не вводить a, b, eps
+#define DataInput 1 // макрос, чтобы не вводить a, b, eps
 
 float a, b, eps;
 
-float input(float num, char str[]) {
+
+float input(char str[]) {
+    float num;
+
     printf("%s", str);
     while (scanf("%f", &num)!=1) {
         while(getchar()!='\n');
@@ -16,13 +19,16 @@ float input(float num, char str[]) {
     return num;
 }
 
+
 void print(float num) {
     printf("%f\n", num);
 }
 
+
 float f(float x) {
     return 3*sin(sqrt(x))+b*x-a;
 }
+
 
 void root(float *arr, float x_min, float x_max) {
     float (*fp)(float x), x_middle, y, n=0;
@@ -43,13 +49,14 @@ void root(float *arr, float x_min, float x_max) {
     *(arr+1) = n;
 }
 
+
 int main() {
     float result[2];
 
     #if DataInput == 1
-        a = input(a, "Введите a: "); //TODO: убрать передачу переменной в функцию
-        b = input(b, "Введите b: ");
-        eps = input(eps, "Введите точность: ");
+        a = input("Введите a: ");
+        b = input("Введите b: ");
+        eps = input("Введите точность: ");
     #else
         a = 3.8;
         b = 0.35;
