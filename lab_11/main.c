@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+FILE *f;
+
 int open(FILE *file, char path[]) {
     if ((file = fopen(path, "r+"))==NULL) {
         return 0;
@@ -10,11 +12,11 @@ int open(FILE *file, char path[]) {
     }
 }
 
+
+
 int main()
 {
-    FILE *file;
-
-    if (open(file, "test.txt")) {
+    if (open(f, "test.txt")) {
 
     }
     else {
