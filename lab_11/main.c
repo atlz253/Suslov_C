@@ -24,16 +24,27 @@ void close() {
 }
 
 
-int main()
-{
+void NegativeToTop(FILE **file) {
+    unsigned short int lines=0;
+    while (!feof(*file)) {
+        if (fgetc(*file) == '\n') lines++;
+    }
+    fseek(*file, 0, SEEK_SET);
+
+    fgets(buffer, 127, *file);
+    printf("%s", buffer);
+}
+
+
+int main() {
     if (open(&f, "test.txt")) {
-        fgets(buffer, 127, f);
-        printf("%s", buffer);
+        NegativeToTop(&f);
         close();
     }
     else {
         printf("Не удалось открыть файл!\n");
         getchar();
+        close();
         return 0;
     }
 
