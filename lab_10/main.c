@@ -21,7 +21,12 @@ float input(char str[]) {
 
 
 void print(float num, char str[]) {
-    printf("%s%f\n", str, num);
+    if (fabs(num-(int)num)>eps) {
+        printf("%s%f\n", str, num);
+    }
+    else {
+        printf("%s%.0f\n", str, num);
+    }
 }
 
 
