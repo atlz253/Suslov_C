@@ -20,8 +20,8 @@ float input(char str[]) {
 }
 
 
-void print(float num) {
-    printf("%f\n", num);
+void print(float num, char str[]) {
+    printf("%s%f\n", str, num);
 }
 
 
@@ -65,8 +65,8 @@ int main() {
 
     root(result, 1, 3);
 
-    print(result[0]);
-    print(result[1]);
+    print(result[0], "Корень уравнения - ");
+    print(result[1], "Количество итераций - ");
 
     return 0;
 }
