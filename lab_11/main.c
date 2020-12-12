@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-FILE *f;
-
 int open(FILE **file, char path[], char rights[]) {
     if ((*file = fopen(path, rights))==NULL) {
         printf("Не удалось открыть файл!\n");
@@ -42,7 +40,7 @@ void NegativeToTop(FILE **file) {
             pp++;
         }
     }
-    close(&f);
+    close(file);
 
     if (open(&(*file), "test.txt", "w")) {
         for (p=arr;p<arr+lines;p++) {
@@ -52,12 +50,14 @@ void NegativeToTop(FILE **file) {
     else {
         printf("Не удалось открыть файл!\n");
         getchar();
-        close(&f);
+        close(file);
     }
 }
 
 
 int main() {
+    FILE *f;
+
     if (open(&f, "test.txt", "r")) {
         NegativeToTop(&f);
         close(&f);
