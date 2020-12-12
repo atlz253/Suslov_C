@@ -3,8 +3,8 @@
 
 FILE *f;
 
-int open(FILE **file, char path[]) {
-    if ((*file = fopen(path, "r+"))==NULL) {
+int open(FILE **file, char path[], char rights[]) {
+    if ((*file = fopen(path, rights))==NULL) {
         printf("Не удалось открыть файл!\n");
         getchar();
         return 0;
@@ -17,7 +17,6 @@ int open(FILE **file, char path[]) {
 
 void close() { // TODO: передавать указатель на файл, который нужно закрыть
     if (f != NULL) {
-        printf("Файл закрыт!\n");
         fclose(f);
     }
 }
@@ -43,17 +42,26 @@ void NegativeToTop(FILE **file) {
             pp++;
         }
     }
+    close();
 
-    for (p=arr;p<arr+lines;p++) {
-        printf("%hd ", *p);
+    if (open(&(*file), "test.txt", "w")) {
+        for (p=arr;p<arr+lines;p++) {
+            fprintf(*file, "%hd\n", *p);
+        }
+    }
+    else {
+        printf("Не удалось открыть файл!\n");
+        getchar();
+        close();
     }
 }
 
 
 int main() {
-    if (open(&f, "test.txt")) {
+    if (open(&f, "test.txt", "r")) {
         NegativeToTop(&f);
         close();
+        printf("Файл закрыт!\n");
     }
     else {
         printf("Не удалось открыть файл!\n");
