@@ -12,7 +12,7 @@ int open(FILE **file, char path[], char rights[]) {
 }
 
 
-void close(FILE **file) { // TODO: передавать указатель на файл, который нужно закрыть
+void close(FILE **file) {
     if (*file != NULL) {
         fclose(*file);
     }
