@@ -47,7 +47,7 @@ void NegativeToTop(FILE **file) {
         }
     }
     else {
-        printf("Не удалось открыть файл test.txt!\n");
+        printf("Не удалось открыть файл!\n");
         getchar();
         close(file);
     }
@@ -63,7 +63,7 @@ int main() {
         printf("Числа отсортированы и файл закрыт!\n");
     }
     else {
-        printf("Не удалось открыть файл test.txt!\n");
+        printf("Не удалось открыть файл!\n");
         getchar();
         close(&f);
         return 0;
