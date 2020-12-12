@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 FILE *f;
-char buffer[100];
 
 int open(FILE **file, char path[]) {
     if ((*file = fopen(path, "r+"))==NULL) {
@@ -16,7 +15,7 @@ int open(FILE **file, char path[]) {
 }
 
 
-void close() {
+void close() { // TODO: передавать указатель на файл, который нужно закрыть
     if (f != NULL) {
         printf("Файл закрыт!\n");
         fclose(f);
@@ -31,8 +30,23 @@ void NegativeToTop(FILE **file) {
     }
     fseek(*file, 0, SEEK_SET);
 
-    fgets(buffer, 127, *file);
-    printf("%s", buffer);
+    short int arr[lines], *pp=arr, *p, tmp;
+
+    for (p=arr;p<arr+lines;p++) {
+        fscanf(*file, "%hd", p);
+        if (*pp<0&&*p>0) pp = p;
+
+        if (*p<0&&*pp>0) {
+            tmp = *pp;
+            *pp = *p;
+            *p = tmp;
+            pp++;
+        }
+    }
+
+    for (p=arr;p<arr+lines;p++) {
+        printf("%hd ", *p);
+    }
 }
 
 
