@@ -4,8 +4,6 @@
 
 int open(FILE **file, char path[], char rights[]) {
     if ((*file = fopen(path, rights))==NULL) {
-        printf("Не удалось открыть файл!\n");
-        getchar();
         return 0;
     }
     else {
@@ -49,7 +47,7 @@ void NegativeToTop(FILE **file) {
         }
     }
     else {
-        printf("Не удалось открыть файл!\n");
+        printf("Не удалось открыть файл test.txt!\n");
         getchar();
         close(file);
     }
@@ -62,10 +60,10 @@ int main() {
     if (open(&f, "test.txt", "r")) {
         NegativeToTop(&f);
         close(&f);
-        printf("Файл закрыт!\n");
+        printf("Числа отсортированы и файл закрыт!\n");
     }
     else {
-        printf("Не удалось открыть файл!\n");
+        printf("Не удалось открыть файл test.txt!\n");
         getchar();
         close(&f);
         return 0;
