@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 int open(FILE **file, char path[], char rights[]) {
     if ((*file = fopen(path, rights))==NULL) {
         printf("Не удалось открыть файл!\n");
