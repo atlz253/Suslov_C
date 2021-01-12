@@ -405,8 +405,6 @@ void ToyDelete() {
 
                     if(choice == 'n')
                         fwrite(&current, sizeof(struct toy), 1, t);
-                    else if(choice == 'y')
-                        fseek(f, 0, SEEK_END);
                 }
                 else {
                     fwrite(&current, sizeof(struct toy), 1, t);
