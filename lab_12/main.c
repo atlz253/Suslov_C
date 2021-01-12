@@ -202,7 +202,10 @@ void FileView() {
         for (i=0;i<pages_num;i++) {
             CLEAR;
             puts(TABLE_TOP);
-
+            
+            if(i+1==pages_num&&count==0)
+                break;
+            
             for (j=0;j<TOY_PAGE;j++) {
                 fread(&current, sizeof(struct toy), 1, f);
                 if(feof(f))
