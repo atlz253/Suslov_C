@@ -20,14 +20,24 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 #define TABLE_TOP "╔══════════════════════════════════════════╦════════╦════════╦════════════╦════════════╗\n║ Название игрушки                         ║ Цена   ║ Кол-во ║ Возраст от ║ Возраст до ║"
 #define TABLE_CONNECT "╠══════════════════════════════════════════╬════════╬════════╬════════════╬════════════╣"
 #define TABLE_DATA "║ %s%*s║ %-7g║ %-7d║ %-11d║ %-11d║\n"
 #define TABLE_BOTTOM "╚══════════════════════════════════════════╩════════╩════════╩════════════╩════════════╝"
+#define CLEAR_CONSOLE 1
+
+
+#if defined(_WIN64) || defined(_WIN32)
+    #include <windows.h>
+    #define CLEAR if(CLEAR_CONSOLE) system("cls")
+#elif defined(__linux)
+    #define CLEAR if(CLEAR_CONSOLE) system("clear")
+#endif
+
+
 #define N 81
 #define TOY_PAGE 10
-#define CLEAR_CONSOLE 1
-#define CLEAR if(CLEAR_CONSOLE) system("clear")
 
 
 int Menu();
@@ -37,7 +47,7 @@ int StrPadding(char str[], int space);
 void FileView();
 void Input(char flag[], void *a, char message[]);
 void AddData();
-void CreateFile();
+void CreateFilef();
 void ToySearch();
 void MaxConstructor();
 void ToyDelete();
@@ -57,6 +67,11 @@ char filename[81];
 
 
 int main(int argc, char *argv[]) {
+    #if defined(_WIN64) || defined(_WIN32)
+        SetConsoleCP(CP_UTF8);
+        SetConsoleOutputCP(CP_UTF8);
+    #endif
+
     CLEAR;
     if (argc == 2) {
         strcpy(filename, argv[1]);
@@ -97,7 +112,7 @@ int Menu() {
 
         switch (choice) {
         case 1:
-            CreateFile();
+            CreateFilef();
             break;
         case 2:
             AddData();
@@ -156,7 +171,7 @@ int StrPadding(char str[], int n) {
     */
     int i;
 
-    for(i=0; i<N; i++) { // Вычисление отступа строки. Русские буквы занимают 2 байта, а ASCII 1 байт, поэтому спецификатор %-81s работает некорректно.
+    for(i=0; i<N; i++) {
         if(str[i] == '\0')
             break;
         else if(str[i] < 0)
@@ -263,7 +278,7 @@ void AddData() {
 }
 
 
-void CreateFile() {
+void CreateFilef() {
     FILE *f;
     if(Open(&f, filename, "w")) {
         printf("Файл создан!\n");
