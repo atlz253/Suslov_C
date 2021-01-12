@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1610451656 source:/home/fedor/Desktop/lab_12/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
