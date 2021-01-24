@@ -1,31 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PART 0
-
+#define PART 2
 
 #if PART == 0
 #define Arrinput 1 // макрос, чтобы не вводить массив вручную
 
 unsigned short int N;
 
-void NumDel(short int *arr, short int num) {
-    short int *p, i=0;
-
-    for (p=arr;p<arr+N;p++) {
-        if (*p==num) {
-            i+=1;
-            *p=*(p+1);
-        }
-        else {
-            *(p-i)=*p;
-        }
-    }
-
-    for (p=arr+N;p>arr+N-i-1;p--) {
-        *p=0;
-    }
-}
+void NumDel(short int *arr, short int num);
 
 int main()
 {
@@ -74,6 +57,22 @@ int main()
     return 0;
 }
 
+void NumDel(short int *arr, short int num) {
+    short int *p, i=0;
+
+    for (p=arr;p<arr+N;p++) {
+        if (*p==num) {
+            i+=1;
+            *p=*(p+1);
+        }
+        else {
+            *(p-i)=*p;
+        }
+    }
+
+    N -= i;
+}
+
 #undef Arrinput
 
 
@@ -82,18 +81,7 @@ int main()
 
 unsigned short int N, M;
 
-void LastNegativeToZero(short int (*arr)[M]) {
-    short int (*ps)[M], *p;
-
-    for (ps=arr;ps<arr+N;ps++) { 
-        for (p=*ps+M-1;p>*ps-1;p--) { 
-            if (*p<0) {
-                *p = 0;
-                break;
-            }
-        }
-    }
-}
+void LastNegativeToZero(short int (*arr)[M]);
 
 int main()
 {
@@ -148,6 +136,19 @@ int main()
     return 0;
 }
 
+void LastNegativeToZero(short int (*arr)[M]) {
+    short int (*ps)[M], *p;
+
+    for (ps=arr;ps<arr+N;ps++) { 
+        for (p=*ps+M-1;p>*ps-1;p--) { 
+            if (*p<0) {
+                *p = 0;
+                break;
+            }
+        }
+    }
+}
+
 #undef Arrinput
 
 
@@ -156,18 +157,7 @@ int main()
 
 unsigned short int N, M;
 
-void LastNegativeToZero(short int arr[N][M]) {
-    short int i, j;
-
-    for (i=0;i<N;i++) {
-        for (j=M-1;j>-1;j--) { 
-            if (arr[i][j]<0) {
-                arr[i][j] = 0;
-                break;
-            }
-        }
-    }
-}
+void LastNegativeToZero(short int arr[N][M]);
 
 int main()
 {
@@ -220,6 +210,19 @@ int main()
         putchar('\n');
     }
     return 0;
+}
+
+void LastNegativeToZero(short int arr[N][M]) {
+    short int i, j;
+
+    for (i=0;i<N;i++) {
+        for (j=M-1;j>-1;j--) { 
+            if (arr[i][j]<0) {
+                arr[i][j] = 0;
+                break;
+            }
+        }
+    }
 }
 
 #endif
