@@ -2,6 +2,30 @@
 #include <stdlib.h>
 
 
+int open(FILE **file, char path[], char rights[]);
+void close(FILE **file);
+void NegativeToTop(FILE **file);
+
+
+int main() {
+    FILE *f;
+
+    if (open(&f, "test.txt", "r")) {
+        NegativeToTop(&f);
+        close(&f);
+        printf("Числа отсортированы и файл закрыт!\n");
+    }
+    else {
+        printf("Не удалось открыть файл!\n");
+        getchar();
+        close(&f);
+        return 0;
+    }
+
+    return 0;
+}
+
+
 int open(FILE **file, char path[], char rights[]) {
     if ((*file = fopen(path, rights))==NULL) {
         return 0;
@@ -51,23 +75,4 @@ void NegativeToTop(FILE **file) {
         getchar();
         close(file);
     }
-}
-
-
-int main() {
-    FILE *f;
-
-    if (open(&f, "test.txt", "r")) {
-        NegativeToTop(&f);
-        close(&f);
-        printf("Числа отсортированы и файл закрыт!\n");
-    }
-    else {
-        printf("Не удалось открыть файл!\n");
-        getchar();
-        close(&f);
-        return 0;
-    }
-
-    return 0;
 }
