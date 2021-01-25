@@ -1,5 +1,7 @@
 # Лабораторные работы по основам программирования (язык си)
 
+Лабораторные работы были выполнены в IDE Code::Blocks 20.03 и VS code 1.52.1, ОС Kubuntu 20.04.
+
 1. [Алгоритмизация](https://github.com/atlz253/suslov_c/tree/master/lab_1)
 2. [Типы данных. ввод/вывод данных на консоль](https://github.com/atlz253/suslov_c/tree/master/lab_2)
 3. [Выражения](https://github.com/atlz253/suslov_c/tree/master/lab_3)
@@ -17,5 +19,5 @@
 15. [Указатель на функцию #2](https://github.com/atlz253/suslov_c/tree/master/lab_10_2)
 16. [Файлы #1](https://github.com/atlz253/suslov_c/tree/master/lab_11_1)
 17. [Файлы #2](https://github.com/atlz253/suslov_c/tree/master/lab_11_2)
-18. [Бинарные файлы #1](https://github.com/atlz253/suslov_c/tree/master/lab_12_1)
-19. [Бинарные файлы #2](https://github.com/atlz253/suslov_c/tree/master/lab_12_2)
+18. [Бинарные файлы (выполнена с кодировкой UTF-8) #1](https://github.com/atlz253/suslov_c/tree/master/lab_12_1)
+19. [Бинарные файлы (выполнена с кодировкой Windows-1251) #2](https://github.com/atlz253/suslov_c/tree/master/lab_12_2)
