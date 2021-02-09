@@ -1,6 +1,6 @@
 # Лабораторные работы по основам программирования (язык си)
 
-Лабораторные работы выполнены в IDE Code::Blocks 20.03 и VS code 1.52.1, ОС Kubuntu 20.04.
+Лабораторные работы выполнены в IDE Code::Blocks 20.03 и VS code 1.52.1, gcc 9.3.0, ОС Kubuntu 20.04.
 
 1. [Алгоритмизация](https://github.com/atlz253/suslov_c/tree/master/lab_1)
 2. [Типы данных. ввод/вывод данных на консоль](https://github.com/atlz253/suslov_c/tree/master/lab_2)
