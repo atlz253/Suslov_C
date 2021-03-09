@@ -144,7 +144,7 @@ int Menu()
             puts("Введен неверный пункт меню!");
         }
 
-    } while (choice < 0 || choice > 7 || choice);
+    } while (choice);
 
     return 0;
 }
@@ -375,10 +375,10 @@ void ToySearch()
 void MaxConstructor()
 {
     CLEAR;
-    int i;
     FILE *f;
     if (Open(&f, filename, "rb"))
     {
+        int i;
         double max_price = 0;
         struct toy current;
 
@@ -552,7 +552,7 @@ void ToyEdit()
                         default:
                             puts("Введен неверный пункт меню!");
                         }
-                    } while (int_choice < 0 || int_choice > 5 || int_choice);
+                    } while (int_choice);
 
                     fseek(f, -sizeof(struct toy), SEEK_CUR);
                     fwrite(&current, sizeof(struct toy), 1, f);
