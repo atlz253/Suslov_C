@@ -46,6 +46,7 @@ void Close(FILE **file);
 int StrPadding(char str[], int space);
 void FileView();
 void Input(char flag[], void *a, char message[]);
+void GetString(char str[N], char message[]);
 void AddData();
 void CreateFilef();
 void ToySearch();
@@ -63,7 +64,7 @@ struct toy {
 };
 
 
-char filename[81];
+char filename[N];
 
 
 int main(int argc, char *argv[]) {
@@ -77,8 +78,7 @@ int main(int argc, char *argv[]) {
         strcpy(filename, argv[1]);
     }
     else if (argc == 1) {
-        printf("Введите имя файла: ");
-        gets(filename);
+        GetString(filename, "Введите имя файла: ");
     }
     else
     {
@@ -259,6 +259,22 @@ void Input(char flag[], void *a, char message[]) {
 }
 
 
+void GetString(char str[N], char message[]) {
+    int i;
+
+    printf(message);
+    fgets(str, N, stdin);
+    for (i = 0; i < N; i++)
+    {
+        if(str[i] == '\n')
+        {
+            str[i] = '\0';
+            break;
+        }
+    }
+}
+
+
 void AddData() {
     CLEAR;
     FILE *f;
@@ -266,8 +282,7 @@ void AddData() {
         struct toy new;
         getchar();
 
-        printf("Введите название игрушки: ");
-        gets(new.name);
+        GetString(new.name, "Введите название игрушки: ");        
 
         Input("%lf", &new.price, "Введите цену: ");
         Input("%d", &new.quantity, "Введите количество: ");
@@ -378,9 +393,8 @@ void ToyDelete() {
     char del[N], choice;
     struct toy current;
 
-    printf("Введите строку: ");
     while(getchar() != '\n');
-    gets(del);
+    GetString(del, "Введите строку: ");
 
     if(Open(&f, filename, "rb")) {
         if(Open(&t, "_temp", "wb")) {
@@ -429,9 +443,8 @@ void ToyEdit() {
     char edit[N], choice;
     struct toy current;
 
-    printf("Введите строку: ");
     while(getchar() != '\n');
-    gets(edit);
+    GetString(edit, "Введите строку: ");
 
     if(Open(&f, filename, "rb+")) {
         fread(&current, sizeof(struct toy), 1, f);
@@ -466,8 +479,7 @@ void ToyEdit() {
 
                         switch(int_choice) {
                             case 1:
-                                printf("Введите название игрушки: ");
-                                gets(current.name);
+                                GetString(current.name, "Введите название игрушки: ");
                                 break;
                             case 2:
                                 Input("%lf", &current.price, "Введите цену: ");
